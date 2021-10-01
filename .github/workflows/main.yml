@@ -20,5 +20,5 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    #- name: Deploy to tomcat
-     # run: curl -v -u manager:manager -T 'http://13.233.87.180:8080//manager/text/deploy?path=/web_app&update=true'
+    - name: Deploy to tomcat
+      run: curl -v -u manager:manager -T /home/runner/work/tomcat_java_maven/tomcat_java_maven/target/WebApp-pipeline.war 'http://13.233.87.180:8080//manager/text/deploy?path=/web_app&update=true'
