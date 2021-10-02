@@ -19,6 +19,6 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Ansible-Vault
-      run: ansible-playbook https://github.com/RanjithChannabasappa/tomcat_java_maven/blob/main/tomcat_u_p.yml --vault-password-file ${{ secrets.ANSIBLE_VAULT_PASSWORD}}
+      run: ansible-playbook --file tomcat_u_p.yml --vault-password-file ${{ secrets.ANSIBLE_VAULT_PASSWORD}}
     #- name: Deploy to tomcat
      # run: curl -v -u manager:pass -T /home/runner/work/tomcat_java_maven/tomcat_java_maven/target/WebApp-pipeline.war 'http://65.0.176.198:8080//manager/text/deploy?path=/web_aapp&update=true'
