@@ -1,0 +1,9 @@
+---
+- name: Deploy
+  hosts: all
+  become: true
+  vars_file:
+    - tomcat_u_p.yml
+  tasks:
+  - name: Deploy to Tomcat
+    copy: src=/home/runner/work/tomcat_java_maven/tomcat_java_maven/target/WebApp-pipeline.war dest='http://{{vault_user_name}}:{{vault_password}}@3.109.201.248:8080//manager/text/deploy?path=/web_aapp&update=true'
