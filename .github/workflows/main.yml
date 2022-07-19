@@ -18,13 +18,13 @@ jobs:
         java-version: '1.8'
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Id
-      run: echo ${{ secrets.ANSIBLE_VAULT_PASSWORD }} > ~/.vault_key
-    - name: View Key
-      run: cat ~/.vault_key
-    - name: Ansible-Vault
-      run: ansible-vault view --vault-password-file ~/.vault_key tomcat_u_p.yml
-    - name: Ansible Playbook Main
-      run: ansible-playbook --vault-password-file ~/.vault_key tomcat_u_p.yml
-    #- name: Deploy to tomcat
-     # run: curl -v -u manager:pass -T /home/runner/work/tomcat_java_maven/tomcat_java_maven/target/WebApp-pipeline.war 'http://65.0.176.198:8080//manager/text/deploy?path=/web_aapp&update=true'
+    #- name: Id
+     # run: echo ${{ secrets.ANSIBLE_VAULT_PASSWORD }} > ~/.vault_key
+    #- name: View Key
+     # run: cat ~/.vault_key
+    #- name: Ansible-Vault
+     # run: ansible-vault view --vault-password-file ~/.vault_key tomcat_u_p.yml
+    #- name: Ansible Playbook Main
+     # run: ansible-playbook --vault-password-file ~/.vault_key tomcat_u_p.yml
+    - name: Deploy to tomcat
+      run: curl -v -u manager:pass -T /home/runner/work/tomcat_java_maven/tomcat_java_maven/target/WebApp-pipeline.war 'http://65.2.6.71:8080//manager/text/deploy?path=/web_aapp&update=true'
